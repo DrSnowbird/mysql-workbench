@@ -1,0 +1,17 @@
+version: '3' 
+services:
+  mysql-workbench:
+    image: openkbs/mysql-workbench
+    build:
+      context: ./Dockerfile
+    container_name: mysql-workbench
+    environment:
+      - USER_ID=${USER_ID:-1000}
+      - GROUP_ID=${GROUP_ID:-1000}
+    env_file:
+      - ./docker.env
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ${HOME}/.mysql/workbench:/home/developer/.mysql/workbench
+      - ${HOME}/data-docker/mysql-workbench/workspace:/home/developer/workspace
+
