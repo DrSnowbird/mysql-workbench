@@ -17,7 +17,7 @@ cd mysql-workbench.git
 ./run.sh
 ```
 
-# Build (optionals)
+# Build (optional)
 If you want build your local docker image instead of pulling from openkb, then do this.
 ```
 ./build.sh
@@ -30,4 +30,5 @@ The default, './run.sh', will use/create the local folder, "$HOME/data-docker/my
 The above approach will ensure all your projects created in the container's "/workspace" folder is "persistent" in your local folder, i.e., "$HOME/data-docker/mysql-workbench/workspace"
 
 # See also
-* [openkbs/pgadmin-docker](https://hub.docker.com/r/openkbs/pgadmin-docker/)
+* [PgAdmin4 for PostgreSQL at openkbs/pgadmin-docker](https://hub.docker.com/r/openkbs/pgadmin-docker/)
+
