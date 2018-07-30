@@ -1,5 +1,4 @@
 FROM openkbs/ubuntu-bionic-jdk-mvn-py3-x11
-#FROM ubuntu:latest
 
 MAINTAINER DrSnowbird "DrSnowbird@openkbs.org"
 
@@ -9,7 +8,7 @@ ENV HOME=/home/${USER_NAME}
 
 #### ---- MYSQL Setup ----
 #https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community_8.0.12-1ubuntu18.04_amd64.deb
-ENV MYSQL_REPO=https://dev.mysql.com/get/Downloads/MySQLGUITools
+ENV MYSQL_REPO=${MYSQL_REPO:-https://dev.mysql.com/get/Downloads/MySQLGUITools}
 
 #ENV MYSQL_WORKBENCH_WORKBENCH=${MYSQL_WORKBENCH_WORKBENCH:-mysql-workbench-community-6.3.10-1ubuntu16.04-amd64.deb}
 ENV MYSQL_WORKBENCH_WORKBENCH=${MYSQL_WORKBENCH_WORKBENCH:-mysql-workbench-community_8.0.12-1ubuntu18.04_amd64.deb}
