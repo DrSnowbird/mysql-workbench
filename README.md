@@ -1,6 +1,6 @@
 # MySQL-Workbench
 
-* MySQL-Workbench + Java 8 (1.8.0_172) JDK + Maven 3.5.0 + Python 2.7.2/3.5.2 + X11 (display GUI)
+* MySQL-Workbench + Java 8 (1.8.0_181) JDK + Maven 3.5.0 + Python 2.7.2/3.5.2 + X11 (display GUI)
 
 # Clone the github of MYSQL-workbench
 ```
