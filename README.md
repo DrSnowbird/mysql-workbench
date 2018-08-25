@@ -1,6 +1,7 @@
 # MySQL-Workbench
+[![](https://images.microbadger.com/badges/image/openkbs/mysql-workbench.svg)](https://microbadger.com/images/openkbs/mysql-workbench "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/openkbs/mysql-workbench.svg)](https://microbadger.com/images/openkbs/mysql-workbench "Get your own version badge on microbadger.com")
 
-* MySQL-Workbench + Java 8 (1.8.0_181) JDK + Maven 3.5.0 + Python 2.7.2/3.5.2 + X11 (display GUI)
+* MySQL-Workbench 8.0 + Java 8 (1.8.0_181) JDK + Maven 3.5.0 + Python 2.7.2/3.5.2 + X11 (display GUI)
 
 # Clone the github of MYSQL-workbench
 ```
