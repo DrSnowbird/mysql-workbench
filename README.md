@@ -33,6 +33,8 @@ The default, './run.sh', will use/create the local folder, "$HOME/data-docker/my
 
 The above approach will ensure all your projects created in the container's "/workspace" folder is "persistent" in your local folder, i.e., "$HOME/data-docker/mysql-workbench/workspace"
 
-# See also
+# See also similar docker-based SQL IDE
+* [Sqlectron SQL GUI at openkbs/sqlectron-docker](https://hub.docker.com/r/openkbs/sqlectron-docker/)
+* [Mysql-Workbench at openkbs/mysql-workbench](https://hub.docker.com/r/openkbs/mysql-workbench/)
 * [PgAdmin4 for PostgreSQL at openkbs/pgadmin-docker](https://hub.docker.com/r/openkbs/pgadmin-docker/)
 
