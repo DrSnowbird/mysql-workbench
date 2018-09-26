@@ -62,6 +62,27 @@ LOCAL_VOLUME_DIR="${baseDataFolder}/${PACKAGE}"
 ## -- Container's internal Volume base DIR
 DOCKER_VOLUME_DIR="/home/developer"
 
+
+###################################################
+#### ---- Detect docker ----
+###################################################
+DOCKER_ENV_FILE="./.env"
+function detectDockerEnvFile() {
+    curr_dir=`pwd`
+    if [ -s "./.env" ]; then
+        echo "--- INFO: ./.env Docker Environment file (.env) FOUND!"
+        DOCKER_ENV_FILE="./.env"
+    else
+        echo "--- INFO: ./.env Docker Environment file (.env) NOT found!"
+        if [ -s "./docker.env" ]; then
+            DOCKER_ENV_FILE="./docker.env"
+        else
+            echo "*** WARNING: Docker Environment file (.env) or (docker.env) NOT found!"
+        fi
+    fi
+}
+detectDockerEnvFile
+
 ###################################################
 #### ---- Function: Generate volume mappings  ----
 ####      (Don't change!)
@@ -82,7 +103,7 @@ function generateVolumeMapping() {
     if [ "$VOLUMES_LIST" == "" ]; then
         ## -- If locally defined in this file, then respect that first.
         ## -- Otherwise, go lookup the docker.env as ride-along source for volume definitions
-        VOLUMES_LIST=`cat docker.env|grep "^#VOLUMES_LIST= *"|sed "s/[#\"]//g"|cut -d'=' -f2-`
+        VOLUMES_LIST=`cat ${DOCKER_ENV_FILE}|grep "^#VOLUMES_LIST= *"|sed "s/[#\"]//g"|cut -d'=' -f2-`
     fi
     for vol in $VOLUMES_LIST; do
         echo "$vol"
@@ -140,8 +161,8 @@ PORT_MAP=""
 function generatePortMapping() {
     if [ "$PORTS" == "" ]; then
         ## -- If locally defined in this file, then respect that first.
-        ## -- Otherwise, go lookup the docker.env as ride-along source for volume definitions
-        PORTS_LIST=`cat docker.env|grep "^#PORTS_LIST= *"|sed "s/[#\"]//g"|cut -d'=' -f2-`
+        ## -- Otherwise, go lookup the ${DOCKER_ENV_FILE} as ride-along source for volume definitions
+        PORTS_LIST=`cat ${DOCKER_ENV_FILE}|grep "^#PORTS_LIST= *"|sed "s/[#\"]//g"|cut -d'=' -f2-`
     fi
     for pp in ${PORTS_LIST}; do
         #echo "$pp"
@@ -200,7 +221,7 @@ function displayURL() {
 #### ---- Replace "Key=Value" withe new value ----
 ###################################################
 function replaceKeyValue() {
-    inFile=${1:-./docker.env}
+    inFile=${1:-${DOCKER_ENV_FILE}}
     keyLike=$2
     newValue=$3
     if [ "$2" == "" ]; then
@@ -210,8 +231,8 @@ function replaceKeyValue() {
     sed -i -E 's/^('$keyLike'[[:blank:]]*=[[:blank:]]*).*/\1'$newValue'/' $inFile
 }
 #### ---- Replace docker.env with local user's UID and GID ----
-replaceKeyValue ./docker.env "USER_ID" "$(id -u $USER)"
-replaceKeyValue ./docker.env "GROUP_ID" "$(id -g $USER)"
+replaceKeyValue ${DOCKER_ENV_FILE} "USER_ID" "$(id -u $USER)"
+replaceKeyValue ${DOCKER_ENV_FILE} "GROUP_ID" "$(id -g $USER)"
 
 ## -- transform '-' and space to '_' 
 #instanceName=`echo $(basename ${imageTag})|tr '[:upper:]' '[:lower:]'|tr "/\-: " "_"`

@@ -1,7 +1,10 @@
 # MySQL-Workbench
 [![](https://images.microbadger.com/badges/image/openkbs/mysql-workbench.svg)](https://microbadger.com/images/openkbs/mysql-workbench "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/openkbs/mysql-workbench.svg)](https://microbadger.com/images/openkbs/mysql-workbench "Get your own version badge on microbadger.com")
 
-* MySQL-Workbench 8.0 + Java 8 (1.8.0_181) JDK + Maven 3.5.0 + Python 2.7.2/3.5.2 + X11 (display GUI)
+* MySQL-Workbench 6.3 + Java 8 (1.8.0_181) JDK + Maven 3.5.0 + Python 2.7.2/3.5.2 + X11 (display GUI)
+
+# NOTICE:
+* Due to unresolved errors in running mysql-workbench v8.0.12 caused by key cache issue, we now back track to previous build version 6.3.10
 
 # Clone the github of MYSQL-workbench
 ```

@@ -3,7 +3,7 @@ FROM openkbs/jdk-mvn-py3-x11
 
 MAINTAINER DrSnowbird "DrSnowbird@openkbs.org"
 
-## ---- USER_NAME is defined in parent image: openkbs/jdk-mvn-py3-x11 already ----
+## ---- USER_NAME is defined in parent image: openkbs/jre-mvn-py3-x11 already ----
 ENV USER_NAME=${USER_NAME:-developer}
 ENV HOME=/home/${USER_NAME}
 

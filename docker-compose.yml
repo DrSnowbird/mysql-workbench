@@ -12,6 +12,7 @@ services:
       - ./docker.env
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
-      - ${HOME}/.mysql/workbench:/home/developer/.mysql/workbench
-      - ${HOME}/data-docker/mysql-workbench/workspace:/home/developer/workspace
+      - .mysql/workbench:/home/developer/.mysql/workbench
+#      - ${HOME}/.mysql/workbench:/home/developer/.mysql/workbench
+#      - ${HOME}/data-docker/mysql-workbench/workspace:/home/developer/workspace
 
