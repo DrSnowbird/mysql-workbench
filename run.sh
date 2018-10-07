@@ -250,7 +250,7 @@ RESTART_OPTION=no
 echo ${DISPLAY}
 xhost +SI:localuser:$(id -un) 
 DISPLAY=${MY_IP}:0 \
-docker run -it \
+docker run -d \
     --name=${instanceName} \
     --restart=${RESTART_OPTION} \
     ${privilegedString} \
@@ -261,5 +261,5 @@ docker run -it \
     ${PORT_MAP} \
     ${imageTag} $*
 
-cleanup
+#cleanup
 
